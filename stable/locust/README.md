@@ -61,7 +61,7 @@ helm install my-release deliveryhero/locust -f values.yaml
 ## Values
 
 | Key | Type | Default | Description |
-|-----|------|---------|-------------|
+|-----|-----|----|-------------|
 | affinity | object | `{}` |  |
 | extraConfigMaps | object | `{}` | Any extra configmaps to mount for the master and worker. Can be used for extra python packages |
 | extraLabels | object | `{}` | Any extra labels to apply to all resources |
@@ -83,6 +83,11 @@ helm install my-release deliveryhero/locust -f values.yaml
 | loadtest.environment_secret | object | `{}` | environment variables used in the load test for both master and workers, stored as secrets |
 | loadtest.excludeTags | string | `""` | whether to run locust with `--exclude-tags [TAG [TAG ...]]` options, so only tasks with no matching tags will be executed |
 | loadtest.headless | bool | `false` | whether to run locust with headless settings |
+| loadtest.expectWorkers | int | `1` | how many workers should connect before the test is started                                                                                                                                                                                                               |
+| loadtest.users | int | `1` | how many users should be simulated                                                                                                                                                                                                                                       |
+| loadtest.rampUpSpeed | int | `1` | how many users per second should be created                                                                                                                                                                                                                              |
+| loadtest.runTime | string | `"1m"` | for how long the test should be running, e.g., 1m, 1h23m                                                                                                                                                                                                                 |
+| loadtest.stopTimeout | int | `99` | a timeout in seconds to allow tasks to complete before shutting down                                                                                                                                                                                                     |
 | loadtest.locustCmd | string | `"/opt/venv/bin/locust"` | The command to run Locust |
 | loadtest.locust_host | string | `"https://www.google.com"` | the host you will load test |
 | loadtest.locust_lib_configmap | string | `"example-lib"` | name of a configmap containing your lib (default uses the example lib) |

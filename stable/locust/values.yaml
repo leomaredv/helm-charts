@@ -29,6 +29,17 @@ loadtest:
       # secret_name: var
   # loadtest.headless -- whether to run locust with headless settings
   headless: false
+  # loadtest.expectWorkers -- how many workers should connect before the test is started
+  expectWorkers: 1
+  # loadtest.users -- how many users should be simulated
+  users: 1
+  # loadtest.rampUpSpeed -- how many users per second should be created
+  rampUpSpeed: 1
+  # loadtest.runTime -- for how long the test should be running, e.g., 1m, 1h23m
+  runTime: "1m"
+  # loadtest.stopTimeout -- a timeout in seconds to allow tasks to complete before shutting down
+  stopTimeout: 0
+
   # loadtest.tags -- whether to run locust with `--tags [TAG [TAG ...]]` options, so only tasks with any matching tags will be executed
   tags: ""
   # loadtest.excludeTags -- whether to run locust with `--exclude-tags [TAG [TAG ...]]` options, so only tasks with no matching tags will be executed

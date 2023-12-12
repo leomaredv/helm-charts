@@ -59,6 +59,11 @@ spec:
 {{- end }}
 {{- if .Values.loadtest.headless }}
           - --headless
+          - --expect-workers {{ .Values.loadtest.expectWorkers }}
+          - -u {{ .Values.loadtest.users }}
+          - -r {{ .Values.loadtest.rampUpSpeed }}
+          - --run-time {{ .Values.loadtest.runTime }}
+          - --stop-timeout {{ .Values.loadtest.stopTimeout }}
 {{- end }}
 {{- if .Values.master.auth.enabled }}
           - --web-auth={{ .Values.master.auth.username }}:{{ .Values.master.auth.password }}
